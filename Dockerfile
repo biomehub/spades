@@ -4,11 +4,12 @@ MAINTAINER lfelipedeoliveira, felipe@lfelipedeoliveira.com
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -y; \
-    apt-get install wget -y; \
-    apt-get upgrade; \
+    apt-get install apt-utils wget pkg-config python3-matplotlib python3-pip -y \
     apt-get clean
 
-# Download & install Diamond
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
+# Download & install
 
  RUN wget http://cab.spbu.ru/files/release3.13.1/SPAdes-3.13.1-Linux.tar.gz \
   && tar -C /opt -zxf SPAdes-3.13.1-Linux.tar.gz \
